@@ -5,5 +5,16 @@
   <%= @train.number %>
 </p>
 
+<% if @train.route.nil? %>
+    <p> Маршрут не назначен</p>
+<% else %>
+    <ul>
+      <%= @train.route.name %>
+      <% @train.route.railway_stations.each do |station| %>
+          <li><%= station.title %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
