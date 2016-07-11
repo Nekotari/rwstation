@@ -5,6 +5,19 @@
   <%= @train.number %>
 </p>
 
+<strong>Плацкартных вагонов:</strong>
+<%= @train.plaz_cars_counter %><br>
+<strong>Верхних мест:</strong>
+<%= @train.places_plaz_up_counter %><br>
+<strong>Нижних мест:</strong>
+<%= @train.places_plaz_low_counter %><br><br>
+<strong>Купейных вагонов:</strong>
+<%= @train.coupe_cars_counter %><br>
+<strong>Верхних мест:</strong>
+<%= @train.places_coupe_up_counter %><br>
+<strong>Нижних мест:</strong>
+<%= @train.places_coupe_low_counter %><br><br>
+
 <% if @train.route.nil? %>
     <p> Маршрут не назначен</p>
 <% else %>
