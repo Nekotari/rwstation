@@ -1,3 +1,3 @@
-class SitCar << Car
+class SitCar < Car
   validates :sit, presence: true
 end

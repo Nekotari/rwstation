@@ -1,3 +1,3 @@
-class LuxCar << Car
+class LuxCar < Car
   validates :lower, presence: true
 end

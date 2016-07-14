@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :railway_stations
   resources :routes
   resources :cars
+  resources :coupe_car, controller: 'cars', type: 'CoupeCar'
+  resources :economy_car, controller: 'cars', type: 'EcomonyCar'
+  resources :lux_car, controller: 'cars', type: 'LuxCar'
+  resources :sit_car, controller: 'cars', type: 'SitCar'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
