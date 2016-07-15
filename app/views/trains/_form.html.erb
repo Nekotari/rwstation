@@ -21,6 +21,15 @@
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
+   <div class="field">
+      <%= f.radio_button :flag, true %>
+      <%= f.label :flag, 'C головы' %>
+    </div>
+    <div class="field">
+      <%= f.radio_button :flag, false %>
+      <%= f.label :flag, 'С хвоста' %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

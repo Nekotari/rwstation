@@ -4,6 +4,13 @@ class Train < ActiveRecord::Base
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id
   has_many :cars
 
+  def sort
+    if self.flag
+      cars.ascending
+    else
+      cars.descending
+    end
+  end
   # def coupe_cars_counter
   #   coupe_cars = 0
   #   cars.each do |car|

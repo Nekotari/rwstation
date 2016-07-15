@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714195924) do
+ActiveRecord::Schema.define(version: 20160715205918) do
 
   create_table "cars", force: :cascade do |t|
     t.integer  "number"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160714195924) do
     t.datetime "updated_at",         null: false
     t.integer  "route_id"
     t.integer  "current_station_id"
+    t.boolean  "flag"
   end
 
   create_table "users", force: :cascade do |t|

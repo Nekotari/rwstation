@@ -6,7 +6,7 @@
 </p>
 
 <strong>Плацкартных вагонов:</strong>
-    <% @train.cars.each do |car| %>
+    <% @train.sort.each do |car| %>
         <li><%= link_to "Вагон №#{car.number}", car %></li>
     <% end %>
 

@@ -5,6 +5,9 @@ class Car < ActiveRecord::Base
 
   before_validation :set_number
 
+  scope :ascending, -> { order(:number)}
+  scope :descending, -> { order("number DESC")}
+  
 private
 
   def set_number
