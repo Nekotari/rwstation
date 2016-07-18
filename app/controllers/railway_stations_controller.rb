@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position]
 
   # GET /railway_stations
   # GET /railway_stations.json
@@ -33,8 +33,6 @@ class RailwayStationsController < ApplicationController
       end
   end
 
-  # PATCH/PUT /railway_stations/1
-  # PATCH/PUT /railway_stations/1.json
   def update
 
       if @railway_station.update(railway_station_params)
@@ -44,8 +42,12 @@ class RailwayStationsController < ApplicationController
       end
   end
 
-  # DELETE /railway_stations/1
-  # DELETE /railway_stations/1.json
+  def update_position
+    @route = Route.find(params[:route_id])
+    @railway_station.update_position(@route, params[:position])
+    redirect_to @route
+  end
+
   def destroy
     @railway_station.destroy
     redirect_to railway_stations_url
