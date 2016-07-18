@@ -5,8 +5,8 @@
   <%= @train.number %>
 </p>
 
-<strong>Плацкартных вагонов:</strong>
-    <% @train.sort.each do |car| %>
+<strong>Вагоны:</strong>
+    <% @train.cars.each do |car| %>
         <li><%= link_to "Вагон №#{car.number}", car %></li>
     <% end %>
 
@@ -20,6 +20,10 @@
       <% end %>
     </ul>
 <% end %>
+
+<p>
+  <%= link_to 'Добавить вагон', new_train_car_path(@train) %>
+</p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

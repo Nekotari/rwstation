@@ -1,4 +1,4 @@
-<%= form_for(@car) do |f| %>
+<%= form_for [@train, @car] do |f| %>
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
@@ -11,50 +11,50 @@
     </div>
   <% end %>
 
-    <div class="field">
-        <%= f.radio_button :type, "CoupeCar" %>
-       <%= f.label :type, 'Купе' %>
-     </div>
-
-   <div class="field">
-  <%= f.radio_button :type, "EconomyCar" %>
-  <%= f.label :type, 'Плацкарт' %>
+  <div class="field">
+    <%= f.radio_button :type, "CoupeCar" %>
+    <%= f.label :type, 'Купе' %>
   </div>
 
-    <div class="field">
-      <%= f.radio_button :type, "LuxCar" %>
-      <%= f.label :type, 'CВ' %>
-    </div>
+  <div class="field">
+    <%= f.radio_button :type, "EconomyCar" %>
+    <%= f.label :type, 'Плацкарт' %>
+  </div>
 
-    <div class="field">
-      <%= f.radio_button :type, "SitCar" %>
-      <%= f.label :type, 'Сидячий' %>
-    </div>
+  <div class="field">
+    <%= f.radio_button :type, "LuxCar" %>
+    <%= f.label :type, 'CВ' %>
+  </div>
 
-    <div class="field">
-      <%= f.label :upper, "Верхних мест" %><br>
-      <%= f.text_field :upper %>
-    </div>
+  <div class="field">
+    <%= f.radio_button :type, "SitCar" %>
+    <%= f.label :type, 'Сидячий' %>
+  </div>
 
-    <div class="field">
-      <%= f.label :lower, "Нижних мест" %><br>
-      <%= f.text_field :lower %>
-    </div>
+  <div class="field">
+    <%= f.label :upper, "Верхних мест" %><br>
+    <%= f.text_field :upper %>
+  </div>
 
-    <div class="field">
-      <%= f.label :side_upper, "Боковых верхних мест" %><br>
-      <%= f.text_field :side_upper %>
-    </div>
+  <div class="field">
+    <%= f.label :lower, "Нижних мест" %><br>
+    <%= f.text_field :lower %>
+  </div>
 
-    <div class="field">
-      <%= f.label :side_lower, "Боковых нижних мест" %><br>
-      <%= f.text_field :side_lower %>
-    </div>
+  <div class="field">
+    <%= f.label :side_upper, "Боковых верхних мест" %><br>
+    <%= f.text_field :side_upper %>
+  </div>
 
-    <div class="field">
-      <%= f.label :sit, "Сидячих мест" %><br>
-      <%= f.text_field :sit %>
-    </div>
+  <div class="field">
+    <%= f.label :side_lower, "Боковых нижних мест" %><br>
+    <%= f.text_field :side_lower %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sit, "Сидячих мест" %><br>
+    <%= f.text_field :sit %>
+  </div>
 
   <div class="field">
     <%= f.label :train, "Поезд" %><br>
