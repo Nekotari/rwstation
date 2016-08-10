@@ -1,0 +1,47 @@
+<h1>Поиск билета</h1>
+
+<%= form_for search_path, method: :post do |f| %>
+
+    <div class="field">
+      <%= f.label "Начальная станция" %><br>
+      <%= select_tag :first_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title, params[:first_station_id]) %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Конечная станция" %><br>
+      <%= select_tag :last_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title, params[:last_station_id]) %>
+    </div>
+
+    <%= submit_tag 'Поиск' %>
+
+<% end %>
+<p>
+<% if @trains.present? %>
+    <h2>Список поездов</h2>
+    <table>
+      <thead>
+      <tr>
+        <td>Номер</td>
+        <td>Маршрут</td>
+        <td>Время отправления</td>
+        <td>Время прибытия</td>
+        <td></td>
+      </tr>
+      </thead>
+
+      <tbody>
+  <% @trains.each do |train| %>
+    <tr>
+      <td> <%= train.number %> </td>
+      <td> <%= train.route.name %> </td>
+      <td> <!%= train.route.railway_stations.first.departure(train.route) %> </td>
+      <td> <!%= train.route.railway_stations.last.arrive(train.route) %> </td>
+      <td> <%= link_to 'Купить', new_ticket_path %></td>
+    </tr>
+  <% end %>
+  <tbody>
+  </table>
+<% else %>
+    По данному направлению билетов не найдено!
+<% end %>
+</p>

@@ -1,0 +1,20 @@
+<h1>Купить билет</h1>
+
+<%= form_for(@ticket) do |f| %>
+
+<div class="field">
+  <%= f.label "ФИО" %><br>
+  <%= f.text_field :passenger %>
+</div>
+
+<div class="field">
+  <%= f.label "Паспорт" %><br>
+  <%= f.text_field :passport %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+<%= link_to 'Back', search_path %>
