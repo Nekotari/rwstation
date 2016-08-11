@@ -34,8 +34,8 @@
     <tr>
       <td> <%= train.number %> </td>
       <td> <%= train.route.name %> </td>
-      <td> <!%= train.route.railway_stations.first.departure(train.route) %> </td>
-      <td> <!%= train.route.railway_stations.last.arrive(train.route) %> </td>
+      <td> <%= train.route.railway_stations.first.departure(train.route) %> </td>
+      <td> <%= train.route.railway_stations.last.arrive(train.route) %> </td>
       <td> <%= link_to 'Купить', new_ticket_path %></td>
     </tr>
   <% end %>

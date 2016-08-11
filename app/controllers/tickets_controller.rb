@@ -45,6 +45,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:passenger, :passport)
+    params.require(:ticket).permit(:passenger, :passport, :from_id, :to_id)
   end
 end
