@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  resources :trains
-  resources :railway_stations
+  resources :trains do
+    resources :cars, shallow: true
+    resources :coupe_car, controller: 'cars', type: 'CoupeCar', shallow: true
+    resources :economy_car, controller: 'cars', type: 'EcomonyCar', shallow: true
+    resources :lux_car, controller: 'cars', type: 'LuxCar', shallow: true
+    resources :sit_car, controller: 'cars', type: 'SitCar', shallow: true
+  end
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
   resources :routes
-  resources :cars
-  resources :coupe_car, controller: 'cars', type: 'CoupeCar'
-  resources :economy_car, controller: 'cars', type: 'EcomonyCar'
-  resources :lux_car, controller: 'cars', type: 'LuxCar'
-  resources :sit_car, controller: 'cars', type: 'SitCar'
+  resource :search, only: [:new, :show, :create]
+  resources :tickets
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,24 @@
+<h1>Билет</h1>
+
+<p>
+<table>
+  <thead>
+  <tr>
+    <td>ФИО</td>
+    <td>Паспорт</td>
+    <td>Начальная станция</td>
+    <td>Конечная станция</td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><%= @ticket.passenger %></td>
+    <td><%= @ticket.passport %></td>
+    <td><%= @ticket.from.title %></td>
+    <td><%= @ticket.to.title %></td>
+  </tr>
+  </tbody>
+</table>
+</p>
+

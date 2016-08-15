@@ -1,3 +1,3 @@
-class CoupeCar < LuxCar
-  validates :upper, presence: true
+class CoupeCar < Car
+  validates :lower, :upper, presence: true
 end
