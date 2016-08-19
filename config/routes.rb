@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   resources :trains do
     resources :cars, shallow: true
     resources :coupe_car, controller: 'cars', type: 'CoupeCar', shallow: true
@@ -6,12 +8,18 @@ Rails.application.routes.draw do
     resources :lux_car, controller: 'cars', type: 'LuxCar', shallow: true
     resources :sit_car, controller: 'cars', type: 'SitCar', shallow: true
   end
+
   resources :railway_stations do
     patch :update_position, on: :member
   end
+
   resources :routes
   resource :search, only: [:new, :show, :create]
   resources :tickets
+
+  get 'welcome/index'
+
+  root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
