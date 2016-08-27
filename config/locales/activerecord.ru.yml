@@ -11,6 +11,11 @@ ru:
       train:
         number: 'Номер'
         current_station: 'Текущая станция'
+      ticket:
+        passenger: 'ФИО'
+        passport: 'Паспорт'
+        from_id: 'Начальная станция'
+        to_id: 'Конечная станция'
     errors:
       messages:
         blank: 'не может быть пустым'

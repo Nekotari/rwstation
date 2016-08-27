@@ -28,3 +28,12 @@ ru:
         submit: '%{action} маршрут'
       show:
         title: 'Название'
+  tickets:
+    form:
+      submit: 'Создать билет'
+    index:
+      title: 'Мои билеты'
+    new:
+      title: 'Купить билет'
+    show:
+      title: 'Билет'

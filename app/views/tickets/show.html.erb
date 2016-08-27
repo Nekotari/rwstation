@@ -1,13 +1,13 @@
-<h1>Билет</h1>
+<h1><%= t('.title') %></h1>
 
 <p>
 <table>
   <thead>
   <tr>
-    <td>ФИО</td>
-    <td>Паспорт</td>
-    <td>Начальная станция</td>
-    <td>Конечная станция</td>
+    <td><%= t('activerecord.attributes.ticket.passenger') %></td>
+    <td><%= t('activerecord.attributes.ticket.passport') %></td>
+    <td><%= t('activerecord.attributes.ticket.from_id') %></td>
+    <td><%= t('activerecord.attributes.ticket.to_id') %></td>
   </tr>
   </thead>
 
