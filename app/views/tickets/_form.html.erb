@@ -1,24 +1,24 @@
-<%= form_for[@user, @ticket] do |f| %>
+<%= form_for [@user, @ticket] do |f| %>
 
     <div class="field">
-      <%= f.label "ФИО" %><br>
+      <%= f.label :passenger %><br>
       <%= f.text_field :passenger %>
     </div>
 
     <div class="field">
-      <%= f.label "Паспорт" %><br>
+      <%= f.label :passport %><br>
       <%= f.text_field :passport %>
     </div>
     <p>
-      <%= f.label :from_id, 'Начальная станция' %><br>
+      <%= f.label :from_id %><br>
       <%= f.collection_select :from_id, RailwayStation.all, :id, :title %>
     </p>
 
     <p>
-      <%= f.label :to_id, 'Конечная станцияя' %><br>
+      <%= f.label :to_id %><br>
       <%= f.collection_select :to_id, RailwayStation.all, :id, :title %>
     </p>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit t('.submit') %>
     </div>
 <% end %>

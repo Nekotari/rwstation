@@ -1,24 +1,28 @@
 <h1>Поиск билета</h1>
 
+<div class="row">
 <%= form_for search_path, method: :post do |f| %>
 
-    <div class="field">
-      <%= f.label "Начальная станция" %><br>
-      <%= select_tag :first_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title, params[:first_station_id]) %>
+    <div class="col-md-4">
+      <!--<%= f.label "Начальная станция" %>-->
+      <%= select_tag :first_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title, params[:first_station_id]), class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.label "Конечная станция" %><br>
-      <%= select_tag :last_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title, params[:last_station_id]) %>
+    <div class="col-md-4">
+      <!--<%= f.label "Конечная станция" %>-->
+      <%= select_tag :last_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title, params[:last_station_id]), class: 'form-control' %>
     </div>
 
-    <%= submit_tag 'Поиск' %>
+    <div class="col-md-4">
+    <%= submit_tag 'Поиск', class: 'btn btn-primary' %>
+    </div>
 
 <% end %>
-<p>
+</div>
+
 <% if @trains.present? %>
     <h2>Список поездов</h2>
-    <table>
+    <table class="table table-hover">
       <thead>
       <tr>
         <td>Номер</td>
@@ -36,7 +40,7 @@
       <td> <%= train.route.name %> </td>
       <td> <%= train.route.railway_stations.first.departure(train.route) %> </td>
       <td> <%= train.route.railway_stations.last.arrive(train.route) %> </td>
-      <td> <%= link_to 'Купить', new_ticket_path %></td>
+      <td> <%= link_to 'Купить', new_ticket_path, class: 'btn-sm btn-default'%></td>
     </tr>
   <% end %>
   <tbody>
