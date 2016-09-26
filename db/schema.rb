@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823140601) do
+ActiveRecord::Schema.define(version: 20160926164410) do
 
   create_table "cars", force: :cascade do |t|
     t.integer  "number"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20160823140601) do
     t.integer  "sit"
     t.string   "type"
   end
+
+  add_index "cars", ["train_id", "type"], name: "index_cars_on_train_id_and_type"
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
@@ -59,6 +61,11 @@ ActiveRecord::Schema.define(version: 20160823140601) do
     t.string   "passport"
   end
 
+  add_index "tickets", ["from_id"], name: "index_tickets_on_from_id"
+  add_index "tickets", ["to_id"], name: "index_tickets_on_to_id"
+  add_index "tickets", ["train_id"], name: "index_tickets_on_train_id"
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
+
   create_table "trains", force: :cascade do |t|
     t.string   "number"
     t.datetime "created_at",         null: false
@@ -67,6 +74,9 @@ ActiveRecord::Schema.define(version: 20160823140601) do
     t.integer  "current_station_id"
     t.boolean  "flag"
   end
+
+  add_index "trains", ["current_station_id"], name: "index_trains_on_current_station_id"
+  add_index "trains", ["route_id"], name: "index_trains_on_route_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false
