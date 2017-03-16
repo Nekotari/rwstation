@@ -4,8 +4,9 @@
 
 <table>
   <tbody>
-    <% @tickets.each do |ticket| %>
+    <% @tickets.each_with_index do |ticket, i| %>
       <tr>
+        <td><%= "#{i+1}. " %></td>
         <td><%= ticket.number %></td>
         <td><%= link_to t('common.show'), ticket_path(ticket) %></td>
         <td><%= link_to t('common.destroy'), ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
